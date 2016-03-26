@@ -20,8 +20,8 @@ class LazySizes extends React.Component {
     dataSrcSet: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.object, React.PropTypes.array]),
     className: React.PropTypes.string,
     iframe: React.PropTypes.bool,
-    width: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.number]),
-    height: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.number])
+    width: React.PropTypes.oneOfType([null, React.PropTypes.string, React.PropTypes.number]),
+    height: React.PropTypes.oneOfType([null, React.PropTypes.string, React.PropTypes.number])
   };
 
   static defaultProps = {
@@ -82,14 +82,12 @@ class LazySizes extends React.Component {
   };
 
   render() {
-    let {src, dataSizes, dataSrc, dataSrcSet, className, iframe, width, height} = this.props;
+    let {src, dataSizes, dataSrc, dataSrcSet, className, iframe} = this.props;
     dataSrcSet = this.handleSrcSet(dataSrcSet);
     if (iframe) {
       return (
         <iframe {...this.props} src={dataSrc ? '' : src}
           data-src={dataSrc}
-          width={width}
-          height={height}
           className={'lazyload ' + className}
           ref='lazyElement'></iframe>
       );
@@ -99,8 +97,6 @@ class LazySizes extends React.Component {
         data-src={dataSrc}
         data-sizes={dataSizes}
         data-srcset={dataSrcSet}
-        width={width}
-        height={height}
         className={'lazyload ' + className}
         ref='lazyElement'/>
     );
