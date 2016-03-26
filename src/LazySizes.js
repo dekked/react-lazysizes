@@ -20,8 +20,8 @@ class LazySizes extends React.Component {
     dataSrcSet: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.object, React.PropTypes.array]),
     className: React.PropTypes.string,
     iframe: React.PropTypes.bool,
-    width: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.number]).isRequired,
-    height: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.number]).isRequired
+    width: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.number]),
+    height: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.number])
   };
 
   static defaultProps = {
